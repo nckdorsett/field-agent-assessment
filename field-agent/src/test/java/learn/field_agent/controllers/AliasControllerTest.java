@@ -1,26 +1,23 @@
 package learn.field_agent.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import learn.field_agent.data.AliasJdbcTemplateRepository;
 import learn.field_agent.models.Alias;
-import learn.field_agent.models.SecurityClearance;
-import org.assertj.core.util.VisibleForTesting;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.TestExecutionListeners;
+
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.*;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -160,14 +157,14 @@ class AliasControllerTest {
     @Test
     void shouldDelete() throws Exception {
         when(repository.delete(2)).thenReturn(true);
-        mvc.perform(delete("/api/delete/2"))
+        mvc.perform(delete("/api/alias/2"))
                 .andExpect(status().isNoContent());
     }
 
     @Test
     void shouldReturn404WhenDeleteIdNotFound() throws Exception {
         when(repository.delete(100)).thenReturn(false);
-        mvc.perform(delete("/api/delete/100"))
+        mvc.perform(delete("/api/alias/100"))
                 .andExpect(status().isNotFound());
     }
 

@@ -44,7 +44,7 @@ public class AliasController {
     @DeleteMapping("/{aliasId}")
     public ResponseEntity<Object> delete(@PathVariable int aliasId) {
         if (service.deleteById(aliasId)) {
-            return new ResponseEntity<>(aliasId, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
