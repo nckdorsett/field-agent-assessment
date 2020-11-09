@@ -1,0 +1,57 @@
+POST http://localhost:8080/ticket HTTP/1.1
+Content-Type: application/json
+
+{
+    "customerName": "test",
+    "customerEmail": "not-an-email",
+    "purchaseDate": "2020-10-05",
+    "pick1": 4,
+    "pick2": 5,
+    "pick3": 6,
+    "pick4": 7,
+    "pick5": 8
+}
+
+###
+POST http://localhost:8080/ticket HTTP/1.1
+Content-Type: application/json
+
+{
+    "customerName": "test",
+    "customerEmail": "test@example.com",
+    "purchaseDate": "2020-10-05",
+    "pick1": 4,
+    "pick2": 5,
+    "pick3": 6,
+    "pick4": 7,
+    "pick5": 8,
+    "powerball": 8
+}
+
+###
+POST http://localhost:8080/ticket HTTP/1.1
+Content-Type: application/json
+
+{
+    "customerName": "test",
+    "customerEmail": "test@example.com",
+    "purchaseDate": "2020-10-05",
+    "pick1": 4,
+    "pick2": 5,
+    "pick3": 4,
+    "pick4": 7,
+    "pick5": 8,
+    "powerball": 8
+}
+
+###
+POST http://localhost:8080/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "root",
+    "password": "password"
+}
+
+###
+GET  http://localhost:8080/sighting HTTP/1.1

@@ -7,7 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.time.LocalDate;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -30,17 +35,17 @@ class AgentServiceTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    void shouldNotAddWhenInvalid() {
-        Agent agent = makeAgent();
-        Result<Agent> result = service.add(agent);
-        assertEquals(ResultType.INVALID, result.getType());
-
-        agent.setAgentId(0);
-        agent.setFirstName(null);
-        result = service.add(agent);
-        assertEquals(ResultType.INVALID, result.getType());
-    }
+//    @Test
+//    void shouldNotAddWhenInvalid() {
+//        Agent agent = makeAgent();
+//        Result<Agent> result = service.add(agent);
+//        assertEquals(ResultType.INVALID, result.getType());
+//
+//        agent.setAgentId(0);
+//        agent.setFirstName(null);
+//        result = service.add(agent);
+//        assertEquals(ResultType.INVALID, result.getType());
+//    }
 
     @Test
     void shouldNotAddWhenValid() {

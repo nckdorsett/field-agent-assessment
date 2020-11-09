@@ -69,23 +69,6 @@ public class AgentService {
             result.addMessage("agent cannot be null", ResultType.INVALID);
             return result;
         }
-
-        if (Validations.isNullOrBlank(agent.getFirstName())) {
-            result.addMessage("firstName is required", ResultType.INVALID);
-        }
-
-        if (Validations.isNullOrBlank(agent.getLastName())) {
-            result.addMessage("lastName is required", ResultType.INVALID);
-        }
-
-        if (agent.getDob() != null && agent.getDob().isAfter(LocalDate.now().minusYears(12))) {
-            result.addMessage("agents younger than 12 are not allowed", ResultType.INVALID);
-        }
-
-        if (agent.getHeightInInches() < 36 || agent.getHeightInInches() > 96) {
-            result.addMessage("height must be between 36 and 96 inches", ResultType.INVALID);
-        }
-
         return result;
     }
 }

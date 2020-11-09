@@ -100,3 +100,4 @@ create table alias (
 insert into security_clearance values
 	(1, 'Secret'),
     (2, 'Top Secret');
+    
